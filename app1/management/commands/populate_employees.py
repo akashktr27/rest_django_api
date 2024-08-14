@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 from faker import Faker
-# from API.app1.models import *
+# from api.app1.models import *
 from app1.models import Employee
 from django.contrib.auth.models import User
 
@@ -26,3 +26,5 @@ class Command(BaseCommand):
             )
 
         self.stdout.write(self.style.SUCCESS('Successfully added 1000 fake employees'))
+
+
