@@ -9,22 +9,19 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         fake = Faker()
-
-        for _ in range(1000):
+        i = 0
+        for _ in range(100000):
             # Create fake user
-            user = User.objects.create_user(
-                username=fake.user_name(),
-                email=fake.email(),
-                password='password123'
-            )
+            print('i', i)
+
 
             # Create fake employee
             Employee.objects.create(
-                user=user,
+                name=fake.name,
                 position=fake.job(),
                 department=fake.company()
             )
-
-        self.stdout.write(self.style.SUCCESS('Successfully added 1000 fake employees'))
+            i += 1
+        self.stdout.write(self.style.SUCCESS('Successfully added 100000 fake employees'))
 
 
